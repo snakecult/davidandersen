@@ -39,7 +39,7 @@
 		<repository>
 			<id>snapshots</id>
 			<name>Archiva Managed Snapshot Repository</name>
-			<url>http://localhost:8080/archiva/repository/snapshots/</url>
+			<url>http://repository.davidandersen.us/archiva/repository/snapshots/</url>
 			<releases>
 				<enabled>false</enabled>
 			</releases>
