@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 import com.google.gson.Gson;
 
+@Component
 public class RedditApiClient {
 
 	private Logger log = Logger.getLogger(RedditApiClient.class);
@@ -49,6 +51,7 @@ public class RedditApiClient {
 			listing.created_utc = c.data.created_utc;
 			listing.permalink = c.data.permalink;
 			listing.author = c.data.author;
+			listing.name = c.data.name;
 			listings.add(listing);
 		}
 
