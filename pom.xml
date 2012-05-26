@@ -7,6 +7,7 @@
 	<packaging>pom</packaging>
 	<modules>
 		<module>reddit</module>
+		<module>da-util</module>
 	</modules>
 	<properties>
 	</properties>
