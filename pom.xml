@@ -60,4 +60,11 @@
 			</snapshots>
 		</repository>
 	</repositories>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>easypages-snapshots</id>
+			<name>Easypages Snapshot Repository</name>
+			<url>http://repository.davidandersen.us/archiva/repository/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
