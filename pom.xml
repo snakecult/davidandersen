@@ -40,7 +40,7 @@
 	<repositories>
 		<repository>
 			<id>central</id>
-			<url>http://artifactory.davidandersen.us/maven2</url>
+			<url>http://artifactory.davidandersen.us/repo</url>
 			<snapshots>
 				<enabled>false</enabled>
 			</snapshots>
