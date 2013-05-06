@@ -39,33 +39,29 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>snapshots</id>
-			<name>Archiva Managed Snapshot Repository</name>
-			<url>http://repository.davidandersen.us/archiva/repository/snapshots/</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
+			<id>central</id>
+			<url>http://artifactory.davidandersen.us/repo</url>
 			<snapshots>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</snapshots>
 		</repository>
 		<repository>
-			<id>external</id>
-			<name>External</name>
-			<url>http://repository.davidandersen.us/archiva/repository/external/</url>
+			<id>snapshots</id>
+			<url>http://artifactory.davidandersen.us/snapshots</url>
 			<releases>
-				<enabled>true</enabled>
+				<enabled>false</enabled>
 			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
 		</repository>
 	</repositories>
 	<distributionManagement>
+		<repository>
+			<id>public</id>
+			<url>http://artifactory.davidandersen.us/public</url>
+		</repository>
 		<snapshotRepository>
 			<id>public-snapshot</id>
 			<url>http://artifactory.davidandersen.us/public-snapshot</url>
-		</snapshotRepository>	
+		</snapshotRepository>
 	</distributionManagement>
 	<dependencyManagement>
 		<dependencies>
