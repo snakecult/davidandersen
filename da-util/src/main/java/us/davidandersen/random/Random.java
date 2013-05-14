@@ -25,4 +25,14 @@ public class Random
 	{
 		return random.nextInt(n);
 	}
+
+	public int nextInt()
+	{
+		return random.nextInt();
+	}
+
+	public float nextFloat()
+	{
+		return random.nextFloat();
+	}
 }
