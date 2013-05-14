@@ -21,14 +21,14 @@ public class Random
 		return num;
 	}
 
-	public int nextInt(final int n)
-	{
-		return random.nextInt(n);
-	}
-
 	public int nextInt()
 	{
 		return random.nextInt();
+	}
+
+	public int nextInt(final int n)
+	{
+		return random.nextInt(n);
 	}
 
 	public float nextFloat()
