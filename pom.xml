@@ -8,6 +8,7 @@
 	<modules>
 		<module>reddit</module>
 		<module>da-util</module>
+		<module>da-mybatis</module>
 	</modules>
 	<properties>
 	</properties>
@@ -84,6 +85,31 @@
 				<groupId>junit</groupId>
 				<artifactId>junit</artifactId>
 				<version>4.11</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis</artifactId>
+				<version>3.2.2</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-context</artifactId>
+				<version>3.2.3.RELEASE</version>
+			</dependency>
+			<dependency>
+				<groupId>org.mybatis</groupId>
+				<artifactId>mybatis-spring</artifactId>
+				<version>1.2.0</version>
+			</dependency>
+			<dependency>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-core</artifactId>
+				<version>2.0.5</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jdbc</artifactId>
+				<version>3.2.3.RELEASE</version>
 			</dependency>
 		</dependencies>
 	</dependencyManagement>

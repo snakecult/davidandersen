@@ -13,3 +13,8 @@
 /da-util/.settings
 /da-util/target
 /da-util/.classpath
+/da-mybatis/.classpath
+/da-mybatis/.project
+
+/da-mybatis/.settings
+/da-mybatis/target
