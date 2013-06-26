@@ -21,7 +21,7 @@ public abstract class JndiDataSourceConfig
 	 * 
 	 * @return
 	 */
-	abstract String getJndiName();
+	public abstract String getJndiName();
 
 	@Bean
 	public DataSource dataSource() throws IllegalArgumentException, NamingException
