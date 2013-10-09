@@ -10,4 +10,8 @@ import java.lang.annotation.Target;
 public @interface Randomize
 {
 	String value() default "";
+
+	int min() default 0;
+
+	int max() default 0;
 }

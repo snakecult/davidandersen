@@ -17,14 +17,14 @@ public class RandomizerTest
 	@Mock
 	Randomizer randomizer;
 
-	private Randomizer cut;
+	private Randomizer objectUnderTest;
 
 	private SomeClass m;
 
 	@Before
 	public void before()
 	{
-		cut = new Randomizer(random, randomizer);
+		objectUnderTest = new Randomizer(random, randomizer);
 
 		m = new SomeClass();
 	}
@@ -34,7 +34,7 @@ public class RandomizerTest
 	{
 		when(random.between(1000, 9999)).thenReturn(1000);
 
-		assertEquals("1000", cut.randomize(""));
+		assertEquals("1000", objectUnderTest.randomize(""));
 	}
 
 	@Test
@@ -42,7 +42,7 @@ public class RandomizerTest
 	{
 		when(random.between(1000, 9999)).thenReturn(9999);
 
-		assertEquals("test9999", cut.randomize("test"));
+		assertEquals("test9999", objectUnderTest.randomize("test"));
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class RandomizerTest
 	{
 		when(randomizer.randomize("")).thenReturn("1000");
 
-		cut.randomize(m);
+		objectUnderTest.randomize(m);
 
 		assertEquals("1000", m.x);
 	}
@@ -60,7 +60,7 @@ public class RandomizerTest
 	{
 		when(randomizer.randomize("bob")).thenReturn("bob9999");
 
-		cut.randomize(m);
+		objectUnderTest.randomize(m);
 
 		assertEquals("bob9999", m.y);
 	}
@@ -70,7 +70,7 @@ public class RandomizerTest
 	{
 		when(random.between(0, 9999)).thenReturn(0);
 
-		cut.randomize(m);
+		objectUnderTest.randomize(m);
 
 		assertEquals(0, m.a);
 	}
@@ -80,9 +80,39 @@ public class RandomizerTest
 	{
 		when(random.between(0, 9999)).thenReturn(9999);
 
-		cut.randomize(m);
+		objectUnderTest.randomize(m);
 
 		assertEquals(9999, m.a);
+	}
+
+	@Test
+	public void randomizeMin()
+	{
+		when(random.between(-5, 0)).thenReturn(-1);
+
+		objectUnderTest.randomize(m);
+
+		assertEquals(-1, m.min);
+	}
+
+	@Test
+	public void randomizeMax()
+	{
+		when(random.between(0, 5)).thenReturn(-4);
+
+		objectUnderTest.randomize(m);
+
+		assertEquals(-4, m.max);
+	}
+
+	@Test
+	public void randomizeMinMax()
+	{
+		when(random.between(10, 15)).thenReturn(13);
+
+		objectUnderTest.randomize(m);
+
+		assertEquals(13, m.minmax);
 	}
 
 	class SomeClass
@@ -93,7 +123,16 @@ public class RandomizerTest
 		@Randomize("bob")
 		private String y;
 
-		@Randomize()
+		@Randomize
 		private int a;
+
+		@Randomize(min = -5)
+		int min;
+
+		@Randomize(max = 5)
+		int max;
+
+		@Randomize(min = 10, max = 15)
+		int minmax;
 	}
 }

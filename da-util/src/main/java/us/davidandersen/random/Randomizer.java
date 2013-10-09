@@ -41,9 +41,17 @@ public class Randomizer
 			{
 				try
 				{
-					final String value = field.getAnnotation(Randomize.class).value();
+					Randomize rnd = field.getAnnotation(Randomize.class);
+					final String value = rnd.value();
+					int min = rnd.min();
+					int max = rnd.max();
+
 					field.setAccessible(true);
-					if (field.getType().isAssignableFrom(String.class))
+					if ("".equals(value) && (min != 0 || max != 0))
+					{
+						field.set(object, random.between(min, max));
+					}
+					else if (field.getType().isAssignableFrom(String.class))
 					{
 						field.set(object, randomizer.randomize(value));
 					}
