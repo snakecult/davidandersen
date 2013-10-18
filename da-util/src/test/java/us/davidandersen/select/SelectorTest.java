@@ -9,82 +9,109 @@ import org.junit.Test;
 
 public class SelectorTest
 {
-	private Boolean boolFalse;
+	// private Boolean boolFalse;
+	//
+	// private Boolean boolTrue;
 
-	private Boolean boolTrue;
+	// private List<Boolean> booleans;
 
-	private List<Boolean> booleans;
+	private List<Integer> integers;
 
 	@Before
 	public void setUp()
 	{
-		boolFalse = false;
-		boolTrue = true;
+		// boolFalse = false;
+		// boolTrue = true;
+		//
+		// booleans = new ArrayList<Boolean>();
+		// booleans.add(boolFalse);
+		// booleans.add(boolTrue);
 
-		booleans = new ArrayList<Boolean>();
-		booleans.add(boolFalse);
-		booleans.add(boolTrue);
+		integers = new ArrayList<Integer>();
+		integers.add(1);
+		integers.add(2);
+		integers.add(3);
+		integers.add(4);
+		integers.add(5);
+		integers.add(6);
 	}
 
 	@Test
-	public void testSelectTrue()
+	public void testSelectOdd()
 	{
 		// test
-		final List<Boolean> results = Selector.select(booleans, new TrueSelector());
+		final List<Integer> results = Selector.select(integers, new OddMatcher());
 
 		// verify
-		assertEquals(1, results.size());
-		assertTrue(results.contains(boolTrue));
+		assertEquals(3, results.size());
+		assertTrue(results.contains(1));
+		assertTrue(results.contains(3));
+		assertTrue(results.contains(5));
 	}
 
 	@Test
-	public void testSelectFalse()
+	public void testSelectEven()
 	{
 		// test
-		final List<Boolean> results = Selector.select(booleans, new FalseSelector());
+		final List<Integer> results = Selector.select(integers, new EvenMatcher());
 
 		// verify
-		assertEquals(1, results.size());
-		assertTrue(results.contains(boolFalse));
+		assertEquals(3, results.size());
+		assertTrue(results.contains(2));
+		assertTrue(results.contains(4));
+		assertTrue(results.contains(6));
 	}
 
 	@Test
-	public void testSelectNotTrue()
+	public void testSelectNotOdd()
 	{
 		// test
-		final List<Boolean> results = Selector.selectNot(booleans, new TrueSelector());
+		final List<Integer> results = Selector.selectNot(integers, new OddMatcher());
 
 		// verify
-		assertEquals(1, results.size());
-		assertTrue(results.contains(boolFalse));
+		assertEquals(3, results.size());
+		assertTrue(results.contains(2));
+		assertTrue(results.contains(4));
+		assertTrue(results.contains(6));
 	}
 
 	@Test
-	public void testSelectNotFalse()
+	public void testSelectNotEven()
 	{
 		// test
-		final List<Boolean> results = Selector.selectNot(booleans, new FalseSelector());
+		final List<Integer> results = Selector.selectNot(integers, new EvenMatcher());
 
 		// verify
-		assertEquals(1, results.size());
-		assertTrue(results.contains(boolTrue));
+		assertEquals(3, results.size());
+		assertTrue(results.contains(1));
+		assertTrue(results.contains(3));
+		assertTrue(results.contains(5));
 	}
 
-	static class TrueSelector implements Matcher<Boolean>
+	static class OddMatcher implements Matcher<Integer>
 	{
 		@Override
-		public boolean isMatch(final Boolean object)
+		public boolean isMatch(final Integer number)
 		{
-			return object == true;
+			return number % 2 == 1;
 		}
 	}
 
-	static class FalseSelector implements Matcher<Boolean>
+	static class EvenMatcher implements Matcher<Integer>
 	{
 		@Override
-		public boolean isMatch(final Boolean object)
+		public boolean isMatch(final Integer number)
 		{
-			return object == false;
+			return number % 2 == 0;
+		}
+	}
+
+	static class DivisibleBy3Matcher implements Matcher<Integer>
+	{
+		@Override
+		public boolean isMatch(final Integer number)
+		{
+			return number % 3 == 0;
 		}
 	}
 }
