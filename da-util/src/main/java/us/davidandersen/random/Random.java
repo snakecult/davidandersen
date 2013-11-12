@@ -35,4 +35,9 @@ public class Random
 	{
 		return random.nextFloat();
 	}
+
+	public double nextDouble()
+	{
+		return random.nextDouble();
+	}
 }
