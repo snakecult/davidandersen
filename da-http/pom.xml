@@ -12,5 +12,10 @@
 			<groupId>org.apache.httpcomponents</groupId>
 			<artifactId>httpclient</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>us.davidandersen</groupId>
+			<artifactId>da-util</artifactId>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 </project>
