@@ -9,7 +9,6 @@ import static org.mockito.Mockito.when;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -77,7 +76,7 @@ public class SimpleHttpClientTest
 		when(httpClient.createClient()).thenReturn(client);
 		when(client.execute(Mockito.any(HttpUriRequest.class))).thenReturn(response);
 		when(response.getEntity()).thenReturn(entity);
-		final InputStream stream = new ByteArrayInputStream(string.getBytes(StandardCharsets.UTF_8)) {
+		final InputStream stream = new ByteArrayInputStream(string.getBytes("UTF-8")) {
 
 			@Override
 			public void close() throws IOException
