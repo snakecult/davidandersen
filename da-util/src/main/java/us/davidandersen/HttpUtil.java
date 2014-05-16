@@ -10,16 +10,16 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.Map;
 import java.util.Set;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class HttpUtil
 {
-	private static Log log = LogFactory.getLog(HttpUtil.class);
+	private static Logger log = LoggerFactory.getLogger(HttpUtil.class);
 
-	static String readFromCon(HttpURLConnection c) throws IOException
+	static String readFromCon(final HttpURLConnection c) throws IOException
 	{
-		BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
+		final BufferedReader in = new BufferedReader(new InputStreamReader(c.getInputStream()));
 		String inputLine;
 		String line = "";
 		while ((inputLine = in.readLine()) != null)
@@ -32,15 +32,15 @@ public class HttpUtil
 
 	public static String get(final URL u) throws IOException
 	{
-		final HttpURLConnection c = (HttpURLConnection) u.openConnection();
+		final HttpURLConnection c = (HttpURLConnection)u.openConnection();
 		c.setRequestMethod("GET");
 		final String json = readFromCon(c);
 		return json;
 	}
 
-	public static String post(final URL u, Map<String, String> params) throws IOException
+	public static String post(final URL u, final Map<String, String> params) throws IOException
 	{
-		final HttpURLConnection c = (HttpURLConnection) u.openConnection();
+		final HttpURLConnection c = (HttpURLConnection)u.openConnection();
 		c.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 		c.setRequestMethod("POST");
 		c.setDoOutput(true);
@@ -52,18 +52,18 @@ public class HttpUtil
 		return response;
 	}
 
-	private static String getParams(Map<String, String> params) throws UnsupportedEncodingException
+	private static String getParams(final Map<String, String> params) throws UnsupportedEncodingException
 	{
 		final Set<String> keySet = params.keySet();
 		String content = "";
-		for (String key : keySet)
+		for (final String key : keySet)
 		{
 			if (content != "")
 			{
 				content += "&";
 			}
 			log.info("key=" + key);
-			String s = params.get(key);
+			final String s = params.get(key);
 			if (s != null)
 			{
 				content += key + "=" + URLEncoder.encode(s, "UTF-8");
@@ -77,7 +77,7 @@ public class HttpUtil
 		return content;
 	}
 
-	private static void writeCon(final HttpURLConnection c, String content) throws IOException
+	private static void writeCon(final HttpURLConnection c, final String content) throws IOException
 	{
 		DataOutputStream printout;
 		printout = new DataOutputStream(c.getOutputStream());
