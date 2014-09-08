@@ -20,3 +20,8 @@
 /da-http/.project
 /da-http/.settings
 /da-http/target
+
+/da-beans/.project
+/da-beans/.settings
+/da-beans/target
+/da-beans/.classpath
