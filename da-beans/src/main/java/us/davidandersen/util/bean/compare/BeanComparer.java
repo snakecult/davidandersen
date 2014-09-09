@@ -1,9 +1,11 @@
-package us.davidandersen.util.bean;
+package us.davidandersen.util.bean.compare;
 
 import java.beans.IntrospectionException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Objects;
 import us.davidandersen.util.bean.iterator.BeanIterator;
+import us.davidandersen.util.bean.iterator.ObjectInfo;
+import us.davidandersen.util.bean.iterator.PropertyComparisonContext;
 
 public class BeanComparer
 {

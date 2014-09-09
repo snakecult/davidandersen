@@ -1,6 +1,6 @@
-package us.davidandersen.util.bean;
+package us.davidandersen.util.bean.iterator;
 
-import us.davidandersen.util.bean.iterator.IterableUtils;
+import us.davidandersen.util.bean.BeanInspector;
 
 public class ObjectInfo
 {

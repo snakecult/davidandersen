@@ -6,9 +6,6 @@ import org.apache.commons.beanutils.BeanMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import us.davidandersen.util.bean.BeanInspector;
-import us.davidandersen.util.bean.ObjectInfo;
-import us.davidandersen.util.bean.ObjectInfoStatus;
-import us.davidandersen.util.bean.PropertyComparisonContext;
 
 public class BeanIterationContext extends AbstractBeanIteratorContext
 {
@@ -117,5 +114,11 @@ public class BeanIterationContext extends AbstractBeanIteratorContext
 	public String toString()
 	{
 		return "BeanIterationContext[propertyName=" + propertyName + "]";
+	}
+
+	@Override
+	public void remove()
+	{
+		throw new UnsupportedOperationException("remove");
 	}
 }

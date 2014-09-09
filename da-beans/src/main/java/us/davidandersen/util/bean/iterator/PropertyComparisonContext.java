@@ -1,4 +1,5 @@
-package us.davidandersen.util.bean;
+package us.davidandersen.util.bean.iterator;
+
 
 public class PropertyComparisonContext
 {

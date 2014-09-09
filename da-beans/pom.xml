@@ -14,12 +14,14 @@
   	<dependency>
   		<groupId>commons-beanutils</groupId>
   		<artifactId>commons-beanutils</artifactId>
-  		<version>1.9.1</version>
   	</dependency>
   	<dependency>
   		<groupId>com.google.guava</groupId>
   		<artifactId>guava</artifactId>
-  		<version>18.0</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.hamcrest</groupId>
+  		<artifactId>hamcrest-core</artifactId>
   	</dependency>
   </dependencies>
 </project>

@@ -3,8 +3,6 @@ package us.davidandersen.util.bean.iterator;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import us.davidandersen.util.bean.ObjectInfo;
-import us.davidandersen.util.bean.PropertyComparisonContext;
 
 public class ListIterationContext extends AbstractBeanIteratorContext
 {

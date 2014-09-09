@@ -1,4 +1,4 @@
-package us.davidandersen.util.bean;
+package us.davidandersen.util.bean.compare;
 
 import java.util.ArrayList;
 import java.util.List;

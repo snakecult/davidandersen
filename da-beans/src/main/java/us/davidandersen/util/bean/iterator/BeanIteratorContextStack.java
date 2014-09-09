@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import us.davidandersen.util.bean.PropertyComparisonContext;
-import us.davidandersen.util.bean.ReflectionMatcher;
+import us.davidandersen.util.bean.compare.ReflectionMatcher;
 
 public class BeanIteratorContextStack
 {
